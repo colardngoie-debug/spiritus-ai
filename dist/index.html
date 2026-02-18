@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Spiritus AI - L'Oracle Infini</title>
+    <meta name="description" content="Explorez les profondeurs de la spiritualité avec Spiritus AI. Un guide universel sur les dieux et les écritures.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Spiritus AI - L'Oracle Infini">
+    <meta property="og:description" content="Découvrez les origines des dieux et les secrets de la Bible sans filtre.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              cinzel: ['"Cinzel Decorative"', 'cursive'],
+            },
+            colors: {
+              spiritual: {
+                light: '#ffffff',
+                dark: '#000000',
+                bg: '#050505'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.5s ease;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .dark body {
+            background: #0f0f0f;
+            color: #ffffff;
+        }
+        .light body {
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+        
+        .glass-panel {
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+        }
+        
+        .dark .glass-panel {
+            background: rgba(24, 24, 27, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .light .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .glass-tile {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .dark .glass-tile {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .light .glass-tile {
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-pill {
+            backdrop-filter: blur(25px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .dark .nav-pill {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .fade-in { animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        
+        /* Hide scrollbar but keep functionality */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(155, 155, 155, 0.2); border-radius: 10px; }
+
+        @media (max-width: 640px) {
+            .glass-panel {
+                border-radius: 0 !important;
+                height: 100vh !important;
+                max-height: 100vh !important;
+                margin: 0 !important;
+            }
+            .nav-pill {
+                bottom: 1.5rem !important;
+                width: 90% !important;
+                scale: 1 !important;
+            }
+        }
+    </style>
+
+<link rel="stylesheet" href="/src/index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-CVENDIKI.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
