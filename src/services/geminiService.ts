@@ -1,11 +1,4 @@
-import { GoogleGenAI, Type, Modality } from "@google/genai";
 import { Language } from "./types";
-
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
-
-export const getGeminiClient = () => {
-  return new GoogleGenAI({ apiKey: API_KEY });
-};
 
 /**
  * Utility to clean up markdown for a clean UI
@@ -39,16 +32,23 @@ FORMAT :
 `;
 
 export const getSpiritualResponse = async (prompt: string, history: { role: 'user' | 'model', content: string }[], lang: Language) => {
-  const ai = getGeminiClient();
-  const chat = ai.chats.create({
-    model: 'gemini-2.0-flash',
-    config: {
-      systemInstruction: getSpiritualSystemInstruction(lang),
-    },
-  });
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt, lang }),
+    });
 
-  const response = await chat.sendMessage({ message: prompt });
-  return cleanSpiritualText(response.text);
+    if (!response.ok) {
+      throw new Error(`API error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data.response || 'No response received';
+  } catch (error) {
+    console.error('Error calling chat API:', error);
+    throw error;
+  }
 };
 
 /**
