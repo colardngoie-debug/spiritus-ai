@@ -41,10 +41,9 @@ FORMAT :
 export const getSpiritualResponse = async (prompt: string, history: { role: 'user' | 'model', content: string }[], lang: Language) => {
   const ai = getGeminiClient();
   const chat = ai.chats.create({
-    model: 'gemini-3-pro-preview',
+    model: 'gemini-2.0-flash',
     config: {
       systemInstruction: getSpiritualSystemInstruction(lang),
-      thinkingConfig: { thinkingBudget: 24000 },
     },
   });
 
@@ -113,7 +112,7 @@ export async function decodeAudioData(
 export const getStructuredBibleInsight = async (topic: string, lang: Language) => {
   const ai = getGeminiClient();
   const response = await ai.models.generateContent({
-    model: 'gemini-3-pro-preview',
+    model: 'gemini-2.0-flash',
     contents: `Fournir une analyse archéologique et textuelle sur : ${topic}. Langue : ${lang === 'fr' ? 'Français' : 'Anglais'}. Pas d'astérisques.`,
     config: {
       responseMimeType: "application/json",
